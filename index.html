@@ -1,41 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TyreGuard - Rugged</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #111; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .poster { width: 100%; height: 100%; position: relative; border: 15px solid #FFD700; display: flex; flex-direction: column; }
-        .bg-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: -1; filter: grayscale(100%) brightness(40%); }
-        .bg-grid img { width: 100%; height: 100%; object-fit: cover; }
-        .header { background: #FFD700; color: #000; padding: 30px 20px; transform: skewY(-3deg); margin-top: -10px; text-align: center; }
-        .business-name { font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; line-height: 1; }
-        .slogan { font-weight: bold; font-size: 1rem; }
-        .main-content { flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; }
-        .contact-bar { background: white; color: black; width: 100%; padding: 15px; display: flex; flex-direction: column; align-items: center; gap: 5px; font-weight: 800; }
-        .qr { position: absolute; bottom: 80px; right: 20px; width: 80px; border: 2px solid #FFD700; }
-    </style>
-</head>
-<body>
-    <div class="poster">
-        <div class="bg-grid">
-            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
-        </div>
-        <div class="header">
-            <h1 class="business-name">TyreGuard</h1>
-            <p class="slogan">"Unbreakable Confidence on Every Road."</p>
-        </div>
-        <div class="main-content">
-            </div>
-        <img src="QR-code.png" class="qr">
-        <div class="contact-bar">
-            <span>📞 078 628 2768</span>
-            <span style="font-size: 0.7rem;">📧 mpumelelongwenya8711@gmail.com</span>
-        </div>
-    </div>
-</body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TyreGuard</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+    color: white;
+}
+
+.poster {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    border: 6px solid #FFD700;
+    position: relative;
+}
+
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    z-index: -1;
+    filter: grayscale(100%) brightness(40%);
+}
+
+.bg-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header {
+    background: #FFD700;
+    color: black;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+.business-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.slogan {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.main-content {
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.qr {
+    width: 70px;
+    display: block;
+    margin: 10px auto;
+    border: 2px solid #FFD700;
+}
+
+.contact-bar {
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.contact-bar span {
+    display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="poster">
+    <div class="bg-grid">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+        <img src="img4.jpg">
+    </div>
+
+    <div class="header">
+        <h1 class="business-name">TyreGuard</h1>
+        <p class="slogan">Unbreakable Confidence on Every Road</p>
+    </div>
+
+    <div class="main-content">
+        <img src="QR-code.png" class="qr">
+    </div>
+
+    <div class="contact-bar">
+        <span>📞 078 628 2768</span>
+        <span>📧 mpumelelongwenya8711@gmail.com</span>
+    </div>
+</div>
+
+</body>
 </html>
