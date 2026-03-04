@@ -7,34 +7,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #111; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .poster { width: 100%; height: 100%; position: relative; border: 15px solid #FFD700; display: flex; flex-direction: column; }
-        .bg-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: -1; filter: grayscale(100%) brightness(40%); }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #111; 
+            color: white; 
+            /* Changed to min-height so content can expand on small screens */
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow-x: hidden; 
+        }
+
+        .poster { 
+            width: 100%; 
+            min-height: 100vh; 
+            position: relative; 
+            /* Scalable border thickness */
+            border: clamp(8px, 2vw, 15px) solid #FFD700; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+        }
+
+        .bg-grid { 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: 1fr 1fr; 
+            z-index: -1; 
+            filter: grayscale(100%) brightness(30%); 
+        }
+
         .bg-grid img { width: 100%; height: 100%; object-fit: cover; }
-        .header { background: #FFD700; color: #000; padding: 30px 20px; transform: skewY(-3deg); margin-top: -10px; text-align: center; }
-        .business-name { font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; line-height: 1; }
-        .slogan { font-weight: bold; font-size: 1rem; }
-        .main-content { flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; }
-        .contact-bar { background: white; color: black; width: 100%; padding: 15px; display: flex; flex-direction: column; align-items: center; gap: 5px; font-weight: 800; }
-        .qr { position: absolute; bottom: 80px; right: 20px; width: 80px; border: 2px solid #FFD700; }
+
+        .header { 
+            background: #FFD700; 
+            color: #000; 
+            padding: clamp(15px, 5vh, 30px) 10px; 
+            transform: skewY(-3deg); 
+            margin-top: -10px; 
+            text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .business-name { 
+            font-family: 'Oswald', sans-serif; 
+            /* Clamp: Min size, preferred size (vw), max size */
+            font-size: clamp(2rem, 10vw, 4rem); 
+            text-transform: uppercase; 
+            line-height: 1; 
+        }
+
+        .slogan { 
+            font-weight: bold; 
+            font-size: clamp(0.8rem, 3vw, 1.2rem);
+            margin-top: 5px;
+        }
+
+        .main-content { 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
+            text-align: center; 
+        }
+
+        .contact-bar { 
+            background: white; 
+            color: black; 
+            width: 100%; 
+            padding: 15px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 5px; 
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .qr { 
+            position: absolute; 
+            bottom: 90px; 
+            right: 20px; 
+            width: clamp(60px, 15vw, 100px); 
+            border: 2px solid #FFD700; 
+            background: white;
+        }
+
+        /* Adjustments for very small phones */
+        @media (max-width: 400px) {
+            .qr {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                margin-bottom: 20px;
+                order: 2; /* Moves it above the contact bar but inside main content if needed */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="poster">
         <div class="bg-grid">
-            <img src="img1.jpg"><img src="img2.jpg"><img src="img3.jpg"><img src="img4.jpg">
+            <img src="img1.jpg" alt="Tire 1"><img src="img2.jpg" alt="Tire 2"><img src="img3.jpg" alt="Tire 3"><img src="img4.jpg" alt="Tire 4">
         </div>
-        <div class="header">
+        
+        <header class="header">
             <h1 class="business-name">TyreGuard</h1>
             <p class="slogan">"Unbreakable Confidence on Every Road."</p>
-        </div>
-        <div class="main-content">
-            </div>
-        <img src="QR-code.png" class="qr">
-        <div class="contact-bar">
+        </header>
+
+        <main class="main-content">
+            <img src="QR-code.png" class="qr" alt="Scan Me">
+        </main>
+
+        <footer class="contact-bar">
             <span>📞 078 628 2768</span>
-            <span style="font-size: 0.7rem;">📧 mpumelelongwenya8711@gmail.com</span>
-        </div>
+            <span style="font-size: clamp(0.6rem, 2.5vw, 0.8rem);">📧 mpumelelongwenya8711@gmail.com</span>
+        </footer>
     </div>
 </body>
 </html>
